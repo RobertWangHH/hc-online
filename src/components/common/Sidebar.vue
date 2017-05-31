@@ -89,7 +89,7 @@
         position: absolute;
         width: 250px;
         left: 0;
-        top: 70px;
+        top: 120px;
         bottom:0;
         background: #2E363F;
     }
