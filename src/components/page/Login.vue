@@ -1,6 +1,6 @@
 <template>
     <div class="login-wrap">
-        <div class="ms-title">后台管理系统</div>
+        <div class="ms-title">厂房在线</div>
         <div class="ms-login">
             <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="0px" class="demo-ruleForm">
                 <el-form-item prop="username">
@@ -79,6 +79,7 @@
         padding:40px;
         border-radius: 5px;
         background: #fff;
+        box-shadow: 2px 2px 10px #696969;
     }
     .login-btn{
         text-align: center;
