@@ -44,6 +44,14 @@ export default new Router({
                 {
                     path: '/drag',
                     component: resolve => require(['../components/page/DragList.vue'], resolve)    // 拖拽列表组件
+                },
+                {
+                    path: '/publish',
+                        component: resolve => require(['../components/page/Publish.vue'], resolve)     // vue-datasource组件
+                },
+                {
+                    path: '/myInfo',
+                        component: resolve => require(['../components/page/MyInfo.vue'], resolve)     // vue-datasource组件
                 }
             ]
         },
