@@ -8,11 +8,11 @@
         </div>
 
         <el-table :data="tableData" border style="width: 100%">
-            <el-table-column prop="creat_time" label="日期" sortable width="150">
+            <el-table-column prop="creatTime" label="日期" :formatter="formatDateStamp" sortable width="190">
             </el-table-column>
-            <el-table-column prop="city" label="城市" width="160">
+            <el-table-column prop="city" label="城市" width="150">
             </el-table-column>
-            <el-table-column prop="address" label="地址" :formatter="formatter" width="300">
+            <el-table-column prop="address" label="地址" :formatter="formatter" width="250">
             </el-table-column>
             <el-table-column label="操作" width="180">
                 <template scope="scope">
@@ -27,20 +27,23 @@
             <el-pagination
                     @current-change ="handleCurrentChange"
                     layout="prev, pager, next"
-                    :page-count="total">
+                    :page-size="size"
+                    :total="total">
             </el-pagination>
         </div>
     </div>
 </template>
 
 <script>
+    import {formatDate} from '../../../static/js/date.js';
     export default {
         data() {
             return {
                 url: '',
                 tableData: [],
                 cur_page: 1,
-                total:0
+                total:0,
+                size:10
             }
         },
         created(){
@@ -54,21 +57,28 @@
             getData(){
                 let self = this;
                 if(process.env.NODE_ENV === 'development'){
-                    self.url = '/hc/sell/all';
+                    self.url = '/zy/sell?page=';
                 };
-                self.$axios.post(self.url, {page:self.cur_page}).then((res) => {
-                    self.tableData = res.data.data.result;
-                    self.total = res.data.data.pageCount;
+                self.$axios.get(self.url+self.cur_page).then((res) => {
+                    self.tableData = res.data.data;
+                    self.total = res.data.count;
                 })
             },
             formatter(row, column) {
                 return row.address;
             },
+            formatDateStamp(row, column){
+                if (row.creatTime == undefined) {
+                     return "";
+                }
+                let date = new Date(row.creatTime);
+                return formatDate(date, "yyyy-MM-dd hh:mm");
+            },
             filterTag(value, row) {
                 return row.tag === value;
             },
             handleEdit(index, row) {
-                this.$message('编辑第'+(index+1)+'行');
+                this.$message('编辑主键是'+(row.cfid)+'，哈哈');
             },
             handleDelete(index, row) {
                 this.$message.error('删除第'+(index+1)+'行');

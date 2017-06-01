@@ -41,6 +41,13 @@ module.exports = {
                 pathRewrite:{
                     '^/hc':''
                 }
+            },
+            '/zy':{
+                target: 'http://192.168.1.187:8090',
+                changeOrigin: true,
+                pathRewrite:{
+                    '^/zy':''
+                }
             }
         },
         // CSS Sourcemaps off by default because relative paths are "buggy"
