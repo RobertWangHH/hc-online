@@ -27,7 +27,7 @@
             <el-pagination
                     @current-change ="handleCurrentChange"
                     layout="prev, pager, next"
-                    :total="1000">
+                    :page-count="total">
             </el-pagination>
         </div>
     </div>
@@ -37,9 +37,10 @@
     export default {
         data() {
             return {
-                url: '../../../static/vuetable.json',
+                url: '',
                 tableData: [],
-                cur_page: 1
+                cur_page: 1,
+                total:0
             }
         },
         created(){
@@ -57,6 +58,7 @@
                 };
                 self.$axios.post(self.url, {page:self.cur_page}).then((res) => {
                     self.tableData = res.data.data.result;
+                    self.total = res.data.data.pageCount;
                 })
             },
             formatter(row, column) {

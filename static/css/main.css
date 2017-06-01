@@ -2,23 +2,26 @@
 html,body,#app,.wrapper{
     width:100%;
     height:100%;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 body{
     font-family:"Helvetica Neue",Helvetica, "microsoft yahei", arial, STHeiTi, sans-serif;
+    background: #f0f0f0;
 }
 a{text-decoration: none}
 .content{
-    background: none repeat scroll 0 0 #fff;
-    position: absolute;
-    left: 250px;
+    background: #fff;
+    position: relative;
+    left: 20px;
     right: 0;
-    top: 120px;
-    bottom:0;
+    top: 10px;
+    bottom: 0;
     width: auto;
-    padding:40px;
+    padding: 40px;
     box-sizing: border-box;
-    overflow-y: scroll;
+    overflow-y: auto;
+    box-shadow: 1px 1px 5px #b5b3b3;
+    max-width: 900px;
 }
 .crumbs{
     margin-bottom: 20px;

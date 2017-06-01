@@ -6,13 +6,14 @@
                 <el-button :plain="true" type="info" icon="view">选择城市</el-button>
             </div>
             <div class="user-info">
-                <el-dropdown trigger="click" @command="handleCommand">
+                <el-dropdown @command="handleCommand">
                 <span class="el-dropdown-link">
                     <img class="user-logo" src="../../../static/img/img.jpg">
                     {{username}}
                     <i class="el-icon-caret-bottom el-icon--right"></i>
                 </span>
                     <el-dropdown-menu slot="dropdown">
+                        <el-dropdown-item command="loginout">个人中心</el-dropdown-item>
                         <el-dropdown-item command="loginout">退出</el-dropdown-item>
                     </el-dropdown-menu>
                 </el-dropdown>
@@ -64,7 +65,7 @@
     }
     .hc-header-box .hc-menu-box{
         background: #62ab00;
-        position: fixed;
+        position: relative;
         width: 100%;
     }
     .hc-header-box .hc-menu{
@@ -128,5 +129,9 @@
         position: relative;
         top: 15px;
         margin-right: 5px;
+    }
+    .el-dropdown-menu .el-dropdown-menu__item{
+        font-size:14px;
+        text-align:center;
     }
 </style>

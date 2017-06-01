@@ -26,7 +26,7 @@
                 items: [
                     {
                         icon: 'el-icon-menu',
-                        index: '2',
+                        index: '1',
                         title: '表格',
                         subs: [
                             {
@@ -41,7 +41,7 @@
                     },
                     {
                         icon: 'el-icon-date',
-                        index: '3',
+                        index: '2',
                         title: '表单',
                         subs: [
                             {
@@ -71,7 +71,17 @@
                         icon: 'el-icon-upload2',
                         index: 'drag',
                         title: '拖拽'
-                    }
+                    },
+                     {
+                         icon: 'el-icon-upload2',
+                         index: 'publish',
+                         title: '发布'
+                     },
+                     {
+                            icon: 'el-icon-upload2',
+                          index: 'myInfo',
+                          title: '我的信息'
+                     }
                 ]
             }
         },
@@ -85,13 +95,13 @@
 
 <style scoped>
     .sidebar{
-        display: block;
-        position: absolute;
+        position: relative;
         width: 250px;
         left: 0;
-        top: 120px;
-        bottom:0;
-        background: #2E363F;
+        top: 10px;
+        bottom: 0;
+        box-shadow: 1px 1px 5px #b5b3b3;
+        float: left;
     }
     .sidebar > ul {
         height:100%;
